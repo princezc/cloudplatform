@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.zhengcheng</groupId>
     <artifactId>cloudplatform-start</artifactId>
     <version>1.0.0.RELEASE</version>
     <packaging>jar</packaging>
@@ -36,6 +35,7 @@
             <groupId>com.zhengcheng</groupId>
             <artifactId>cloudplatform-web</artifactId>
         </dependency>
+
     </dependencies>
 
 </project>
