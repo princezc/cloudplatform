@@ -28,6 +28,15 @@
             <groupId>com.zhengcheng</groupId>
             <artifactId>cloudplatform-dao</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.jingneng</groupId>
+            <artifactId>rtdb</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/RTDBJavaSDK.jar</systemPath>
+        </dependency>
+
     </dependencies>
 
 </project>

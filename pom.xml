@@ -61,6 +61,8 @@
 			<scope>test</scope>
 		</dependency>
 
+
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -101,6 +103,14 @@
 				<version>1.3.2</version>
 			</dependency>
 
+<!--			<dependency>
+				<groupId>com.jingneng</groupId>
+				<artifactId>rtdb</artifactId>
+				<version>1.0.0</version>
+				<scope>system</scope>
+				<systemPath>${project.basedir}/cloudplatform-start/src/main/resources/lib/RTDBJavaSDK.jar</systemPath>
+			</dependency>-->
+
 		</dependencies>
 	</dependencyManagement>
 
@@ -109,8 +119,31 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<includeSystemScope>true</includeSystemScope>
+				</configuration>
 			</plugin>
+			<!--<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+					<compilerArguments>
+						<extdirs>${project.basedir}/cloudplatform-start/src/main/resources/lib</extdirs>
+					</compilerArguments>
+				</configuration>
+			</plugin>-->
 		</plugins>
+		<!--<resources>
+			<resource>
+				<directory>cloudplatform-start/src/main/resources</directory>
+				<targetPath>lib/</targetPath>
+				<includes>
+					<include>**/*.jar</include>
+				</includes>
+			</resource>
+		</resources>-->
 	</build>
 
 
