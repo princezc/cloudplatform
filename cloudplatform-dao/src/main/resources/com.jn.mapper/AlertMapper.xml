@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jn.dao.AlertDAO" >
+    <resultMap id="alertResultMap" type="com.jn.domain.AlertDO" >
+        <result column="deviceId" property="deviceId" jdbcType="VARCHAR" />
+        <result column="deviceState" property="deviceState" jdbcType="VARCHAR" />
+        <result column="description" property="description" jdbcType="VARCHAR" />
+    </resultMap>
+    <insert id="insertAlert" parameterType="com.jn.domain.AlertDO" >
+        insert into alert (deviceId, deviceState, description)
+        values (#{deviceId}, #{deviceState}, #{description})
+    </insert>
+</mapper>

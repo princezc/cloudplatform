@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jn.dao.ReferenceDAO" >
+    <resultMap id="referenceResultMap" type="com.jn.domain.ReferenceDO" >
+        <result column="deviceId" property="deviceId" jdbcType="VARCHAR" />
+        <result column="serviceId" property="serviceId" jdbcType="VARCHAR" />
+        <result column="serviceType" property="serviceType" jdbcType="VARCHAR" />
+        <result column="dbRName" property="dbRName" jdbcType="VARCHAR" />
+        <result column="DataoffSet" property="dataOffset" jdbcType="FLOAT" />
+        <result column="descirption" property="description" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="reference_column">
+        deviceId, serviceId, serviceType, dbRName, DataoffSet, descirption
+    </sql>
+
+    <insert id="insertReference" parameterType="com.jn.domain.ReferenceDO">
+        insert into reference (<include refid="reference_column"/>)
+        values (#{deviceId}, #{serviceId}, #{serviceType}, #{dbRName}, #{dataOffset}, #{description})
+    </insert>
+
+    <select id="selectReferenceById" parameterType="java.lang.String" resultMap="referenceResultMap">
+        select <include refid="reference_column"/> from reference where deviceId = #{deviceId}
+    </select>
+</mapper>

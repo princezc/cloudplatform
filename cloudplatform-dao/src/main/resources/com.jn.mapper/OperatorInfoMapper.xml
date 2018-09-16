@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jn.dao.OperatorInfoDAO" >
+    <resultMap id="operatorInfoResultMap" type="com.jn.domain.OperatorInfoDO" >
+        <result column="username" property="userName" jdbcType="VARCHAR" />
+        <result column="psw" property="password" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="insertOperatorInfo" parameterType="com.jn.domain.OperatorInfoDO">
+        insert into operatorInfo (username, psw)
+        values (#{userName}, #{password})
+    </insert>
+
+    <select id="selectOperatorInfoByName" parameterType="java.lang.String" resultMap="operatorInfoResultMap">
+        select username, psw from operatorInfo where username = #{userName}
+    </select>
+</mapper>
