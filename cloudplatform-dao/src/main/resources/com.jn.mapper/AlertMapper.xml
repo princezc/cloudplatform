@@ -5,9 +5,14 @@
         <result column="deviceId" property="deviceId" jdbcType="VARCHAR" />
         <result column="deviceState" property="deviceState" jdbcType="VARCHAR" />
         <result column="description" property="description" jdbcType="VARCHAR" />
+        <result column="operator" property="operator" jdbcType="VARCHAR" />
+        <result column="tagMask" property="tagMask" jdbcType="VARCHAR" />
     </resultMap>
     <insert id="insertAlert" parameterType="com.jn.domain.AlertDO" >
-        insert into alert (deviceId, deviceState, description)
-        values (#{deviceId}, #{deviceState}, #{description})
+        insert into alert (deviceId, deviceState, description, operator, tagMask)
+        values (#{deviceId}, #{deviceState}, #{description}, #{operator}, #{tagMask})
     </insert>
+    <select id="selectAlertById" resultMap="alertResultMap" parameterType="java.lang.String">
+        select deviceId, deviceState, description, operator, tagMask from alert where deviceId = #{deviceId}
+    </select>
 </mapper>

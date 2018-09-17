@@ -1,6 +1,7 @@
 package com.jn.dao;
 
 import com.jn.domain.OperatorInfoDO;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * @Author zhengcheng
  * @Date 2018/9/16 14:48
  **/
+@Mapper
 public interface OperatorInfoDAO {
 
     /**

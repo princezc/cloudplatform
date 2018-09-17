@@ -12,7 +12,7 @@
     <groupId>com.zhengcheng</groupId>
     <artifactId>cloudplatform-web</artifactId>
     <version>1.0.0.RELEASE</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>cloudplatform-web</name>
 
     <dependencies>
@@ -29,5 +29,14 @@
             <artifactId>cloudplatform-service</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

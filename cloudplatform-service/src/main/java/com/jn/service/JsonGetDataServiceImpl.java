@@ -1,21 +1,28 @@
-package com.jn.utils;
+package com.jn.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.Map;
 
-/**Json解析工具方法
- * @ClassName JsonGetDataUtils
+/**
+ * @ClassName JsonGetDataServiceImpl
  * @Author zhengcheng
- * @Date 2018/9/14 16:22
+ * @Date 2018/9/17 11:14
  **/
 @Slf4j
-public class JsonGetDataUtils {
+@Service
+public class JsonGetDataServiceImpl implements JsonGetDataService{
 
-    public static Map getData(String json, Map map) {
+    @Autowired
+    private AlertService alertService;
+
+    @Override
+    public Map parseData(String json, Map map) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             JsonNode node = mapper.readTree(json);
@@ -39,12 +46,12 @@ public class JsonGetDataUtils {
             map.put("serviceType",serviceTypeInString);
             //获取实际数据
             JsonNode dataIdInJson = notifyType.findValue("data");
-            JsonNode Jsondata = dataIdInJson.findValue(serviceTypeInString);
-            int data = Jsondata.asInt();
+            JsonNode jsonData = dataIdInJson.findValue(serviceTypeInString);
+            int data = jsonData.asInt();
             log.info("Data is {}", data);
             map.put("data", data);
             if(serviceTypeInString.equals("shock") && data==0){
-                AlertUtils.sendAlertMessage(deviceIdInString);
+                alertService.doAlert(deviceIdInString);
             }
             return map;
         } catch (IOException e) {

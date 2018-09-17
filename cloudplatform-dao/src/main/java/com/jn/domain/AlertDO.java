@@ -13,4 +13,6 @@ public class AlertDO {
     public String deviceId;
     public String deviceState;
     public String description;
+    public String operator;
+    public String tagMask;
 }

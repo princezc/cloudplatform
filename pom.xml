@@ -5,12 +5,13 @@
 
 	<description>SpringBoot后台</description>
 	<name>cloudplatform</name>
-	<packaging>pom</packaging>
+<!--	<packaging>pom</packaging>-->
 
 
 	<groupId>com.zhengcheng</groupId>
 	<artifactId>cloudplatform</artifactId>
 	<version>1.0.0.RELEASE</version>
+	<packaging>pom</packaging>
 
 
 
@@ -44,6 +45,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- 移除嵌入式tomcat插件 -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -73,6 +81,35 @@
 			<version>5.1.47</version>
 		</dependency>
 
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <!-- 打war包用 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+			<version>1.5.2.RELEASE</version>
+            <!--<scope>provided</scope>-->
+        </dependency>
+
+		<!--jsp-->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
 
 	</dependencies>
 	<dependencyManagement>
@@ -139,8 +176,26 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<includeSystemScope>true</includeSystemScope>
+					<mainClass>com.jn.CloudPlatformApplication</mainClass>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
+<!--
+			&lt;!&ndash; 打war包用,maven打包的时候告诉maven不需要web.xml,否刚会报找不到web.xml错误 &ndash;&gt;
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>-->
 			<!--<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>

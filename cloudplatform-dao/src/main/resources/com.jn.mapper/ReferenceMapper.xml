@@ -22,4 +22,8 @@
     <select id="selectReferenceById" parameterType="java.lang.String" resultMap="referenceResultMap">
         select <include refid="reference_column"/> from reference where deviceId = #{deviceId}
     </select>
+
+    <select id="selectReferenceByProperties" parameterType="java.lang.String" resultMap="referenceResultMap">
+        select <include refid="reference_column"/> from reference where deviceId = #{deviceId} and serviceId = #{serviceId} and serviceType = #{serviceType}
+    </select>
 </mapper>
