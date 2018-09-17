@@ -68,6 +68,16 @@
 			<scope>test</scope>
 		</dependency>
 
+<!--		&lt;!&ndash;华源数据库&ndash;&gt;
+		<dependency>
+			<groupId>com.jingneng</groupId>
+			<artifactId>rtdb</artifactId>
+			<version>1.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/RTDBJavaSDK.jar</systemPath>
+		</dependency>-->
+
+
 		<!--db-->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
@@ -95,7 +105,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
 			<version>1.5.2.RELEASE</version>
-            <!--<scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
 
 		<!--jsp-->
@@ -108,6 +118,13 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 	</dependencies>

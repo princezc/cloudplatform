@@ -31,10 +31,6 @@
             <groupId>com.zhengcheng</groupId>
             <artifactId>cloudplatform-service</artifactId>
         </dependency>
-<!--        <dependency>
-            <groupId>com.zhengcheng</groupId>
-            <artifactId>cloudplatform-web</artifactId>
-        </dependency>-->
 
     </dependencies>
 

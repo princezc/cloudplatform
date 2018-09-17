@@ -11,12 +11,12 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * @Date 2018/9/13 20:33
  **/
 @SpringBootApplication
-public class CloudPlatformApplication /*extends SpringBootServletInitializer*/ {
+public class CloudPlatformApplication extends SpringBootServletInitializer {
 
-/*    @Override
+    @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(CloudPlatformApplication.class);
-    }*/
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(CloudPlatformApplication.class, args);
